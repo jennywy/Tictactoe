@@ -1,2 +1,15 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.container-fluid {
+  height: 600px;
+  width: 600px;
+  margin: 20px auto;
+}
+
+.row div {
+  border: 1px solid #990099;
+  height: 200px;
+  margin: 0 auto;
+  width: 200px;
+}
