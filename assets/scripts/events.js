@@ -59,11 +59,19 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
 module.exports = {
   game,
   turn,
   gameMoves,
   checkWinner,
   onSignUp,
-  onSignIn
+  onSignIn,
+  onSignOut
 }

@@ -24,13 +24,24 @@ const signInFailure = function (error) {
   $('#message').text('Error on sign in')
 }
 
+const signOutSuccess = function () {
+  console.log('Signed Out Successfully')
+  $('#message').text('Signed Out Successfully')
+  store.user = null
+}
+
+const signOutFailure = function () {
+  console.log('Sign Out Failure')
+  $('#message').text('Sign Out Failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  signOutSuccess,
+  signOutFailure
   // changePasswordSuccess,
   // changePasswordFailure,
-  // signOutSuccess,
-  // signOutFailure
 }

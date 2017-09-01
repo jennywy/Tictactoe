@@ -3,18 +3,17 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./events')
-// require the auth events page
+// require the auth events page once it's created
 
 $(() => {
   setAPIOrigin(location, config)
 })
 
 $(() => {
-  // all the event listeners for click inside a div go here
   $('.box').on('click', events.game)
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
-// event listeners for sign functions
+  $('#sign-out').on('submit', events.onSignOut)
 })
 
 // use require with a reference to bundle the file and use it in this file
