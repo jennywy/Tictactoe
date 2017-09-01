@@ -1,10 +1,43 @@
 
-// let gameMoves = [null, null, null, null, null, null, null, null, null]
+// turn off event listener after 9 clicks
+// why I can still flip over my boxes
+// check for match logic for the rest of the matches
+
+// can I check for match by assigning 8 classes horizontal1, h2, h3, vertical1, v2, v3, diag1, d2
+// and then selecting them and assessing them for a match?
+
+gameMoves[$(this).data('id')] = $(this).text()
+
+gameMoves[$(this).data('class')
+
+console.log(gameMoves)
+
+checkWinner()
+
+const checkWinner = function () {
+  if (gameMoves[0] === 'X' && gameMoves[1] === 'X' && gameMoves[2] === 'X') {
+    console.log('winner')
+  } else {
+    console.log('nope')
+  }
+}
 
 
-// getting clicks to push into gameMoves
+// tie
+const tie = function () {
+  // nine clicks and no match
+  if (gameMoves.length === 9) {
+    console.log('tie game')
+  }
+}
 
-//
+
+//clearBoard
+const clearBoard = function {
+  // if there are 9 clicks
+}
+
+
 let gameMoves = [0,1,2,3,4,5,6,7,8]
 let playerXMoves = []
 let playerOMoves = []

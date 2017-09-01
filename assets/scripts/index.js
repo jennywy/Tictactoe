@@ -2,7 +2,8 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const events = require('./events.js')
+const events = require('./events')
+// require the auth events page
 
 $(() => {
   setAPIOrigin(location, config)
@@ -11,6 +12,7 @@ $(() => {
 $(() => {
   // all the event listeners for click inside a div go here
   $('.box').on('click', events.game)
+  $('#sign-up').on('submit', events.onSignUp)
 // event listeners for sign functions
 })
 

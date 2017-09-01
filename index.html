@@ -13,8 +13,26 @@
     <body class="container-fluid">
       <h1>Tic Tac Toe</h1>
       <!-- these should be forms! -->
-      <p id="sign-up">sign up</p>
-      <p id="sign-in">sign in</p>
+      <p id="message"></p>
+      <form id='sign-up'>
+        <fieldset>
+          <legend>Sign Up!</legend>
+  <input name="credentials[email]" type="text" placeholder="email address">
+  <input name="credentials[password]" type="password" placeholder="password">
+  <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+  <input type="submit" name="submit" value="Sign up!">
+</fieldset>
+</form>
+
+<form>
+  <fieldset>
+    <legend>Sign In!</legend>
+<input name="credentials[email]" type="text" placeholder="email">
+<input name="credentials[password]" type="password" placeholder="password">
+  <input type="submit" name="submit" value="Sign in!">
+</fieldset>
+</form>
+
       <p id="sign-out">sign out</p>
       <!-- forms end here -->
       <div class="board">
