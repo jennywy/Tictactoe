@@ -41,6 +41,8 @@ const game = function (event) {
   checkWinner()
 }
 
+// export me to an auth events!
+
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -49,12 +51,19 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-const onSignIn = function () {}
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
 
 module.exports = {
   game,
   turn,
   gameMoves,
   checkWinner,
-  onSignUp
+  onSignUp,
+  onSignIn
 }

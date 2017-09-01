@@ -13,6 +13,7 @@ $(() => {
   // all the event listeners for click inside a div go here
   $('.box').on('click', events.game)
   $('#sign-up').on('submit', events.onSignUp)
+  $('#sign-in').on('submit', events.onSignIn)
 // event listeners for sign functions
 })
 
