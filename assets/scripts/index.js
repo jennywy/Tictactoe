@@ -14,6 +14,7 @@ $(() => {
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
   $('#sign-out').on('submit', events.onSignOut)
+  $('button').on('click', events.reset)
 })
 
 // use require with a reference to bundle the file and use it in this file

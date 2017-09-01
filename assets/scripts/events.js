@@ -7,7 +7,8 @@ const api = require('/Users/jennyyee/wdi/projects/tictactoe/assets/scripts/api.j
 const ui = require('./ui')
 
 // push the click events into the gamearray
-const gameMoves = [null, null, null, null, null, null, null, null, null]
+let gameMoves = [null, null, null, null, null, null, null, null, null]
+let gameStatus = 'active'
 
 const checkWinner = function () {
   if ((gameMoves[0] === gameMoves[1] && gameMoves[1] === gameMoves[2] && gameMoves[2] !== null) ||
@@ -19,14 +20,16 @@ const checkWinner = function () {
   (gameMoves[2] === gameMoves[5] && gameMoves[5] === gameMoves[8] && gameMoves[8] !== null) ||
   (gameMoves[2] === gameMoves[4] && gameMoves[4] === gameMoves[6] && gameMoves[6] !== null)) {
     console.log('Winner!')
-  } else {
-    console.log('Draw')
+    gameStatus = 'inactive'
+  } else if (turn === 9) {
+    console.log('draw')
+    gameStatus = 'inactive'
   }
 }
 
 let turn = 0
 const game = function (event) {
-  if (gameMoves[$(this).data('id')] === null) {
+  if (gameMoves[$(this).data('id')] === null && gameStatus === 'active') {
     if (turn % 2 === 1) {
       $(event.target).text('O')
       turn += 1
@@ -41,6 +44,12 @@ const game = function (event) {
   checkWinner()
 }
 
+const reset = function (event) {
+  event.preventDefault()
+  gameMoves = [null, null, null, null, null, null, null, null, null]
+  gameStatus = 'active'
+  $('.box').text(null)
+}
 // export me to an auth events!
 
 const onSignUp = function (event) {
@@ -73,5 +82,6 @@ module.exports = {
   checkWinner,
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  reset
 }
