@@ -1,6 +1,10 @@
 
 // let gameMoves = [null, null, null, null, null, null, null, null, null]
 
+
+// getting clicks to push into gameMoves
+
+//
 let gameMoves = [0,1,2,3,4,5,6,7,8]
 let playerXMoves = []
 let playerOMoves = []
@@ -25,28 +29,33 @@ const user = [0, 2, 1, 4]
 const bad = [3, 1, 2]
 const wrong = bad.sort()
 const sorted = user.sort()
-const check = function (sortedset) {
+
+let sortPlayer = function (playerMoves) {
+  playerMoves = playerMoves.sort()
+  return playerMoves
+}
+
+const check = function (sortPlayer) {
   for (let i = 0; i < match.length; i++) {
     if (match[i] === sortedset[i]) {
       return true
-} else {
-  return false
+    } else {
+      // actually want this to loop to the next set of matches in matchID....
+      return false
+    }
+  }
 }
-}
-}
-check(sorted)
-check(wrong)
 
-// if some of b === match
+check(sortedPlayer)
+
+//
 
 const matchIds = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-
+match = matchIds[i]
+x
 const checkForMatch = function (playerMoves) {
   if (playerMoves.length >= 3) {
     //go through each item of the matchIds to check if
-for
-  }
-}
 
 
 // adding player moves into their array
@@ -60,6 +69,3 @@ let game = function (player, index) {
 // create an incrimenter
 // if we click nine times and there is no match, then it's a tie and the game ends
 // every even click is O, every odd click is X
-
-const checkForMatch = function () {}
-// check if the clicks match any of the set of matchIds
