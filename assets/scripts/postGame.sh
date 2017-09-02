@@ -1,4 +1,4 @@
-# TOKEN="BAhJIiU5NTdlMGY0NDcxYzJiMWZmMDdkZDQzNGQzNTFjN2I2NAY6BkVG--6fdf3ea66d9414ba76ffca99f04f4526c2f30ab8" sh assets/scripts/postGame.sh
+# TOKEN="BAhJIiU5NTdlMGY0NDcxYzJiMWZmMDdkZDQzNGQzNTFjN2I2NAY6BkVG--6fdf3ea66d9414ba76ffca99f04f4526c2f30ab8" sh assets/scripts/create.sh
 
 API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
 URL_PATH="/games"

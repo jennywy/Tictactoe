@@ -1,10 +1,10 @@
+{"game": {
+  "id":5192,
+  "cells":["","","","","","","","",""],
+  "over":false,
+  "player_x": {"id":524,"email":"qqq"},
+  "player_o":null}}
 
-// turn off event listener after 9 clicks
-// why I can still flip over my boxes
-// check for match logic for the rest of the matches
-
-// can I check for match by assigning 8 classes horizontal1, h2, h3, vertical1, v2, v3, diag1, d2
-// and then selecting them and assessing them for a match?
 
 gameMoves[$(this).data('id')] = $(this).text()
 
@@ -22,20 +22,6 @@ const checkWinner = function () {
   }
 }
 
-
-// tie
-const tie = function () {
-  // nine clicks and no match
-  if (gameMoves.length === 9) {
-    console.log('tie game')
-  }
-}
-
-
-//clearBoard
-const clearBoard = function {
-  // if there are 9 clicks
-}
 
 
 let gameMoves = [0,1,2,3,4,5,6,7,8]

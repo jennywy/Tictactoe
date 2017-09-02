@@ -75,6 +75,13 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onCreate = function (event) {
+  event.preventDefault()
+  api.create()
+    .then(console.log('created a game'))
+    .catch(console.log('something went wrong'))
+}
+
 module.exports = {
   game,
   turn,
@@ -83,5 +90,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  reset
+  reset,
+  onCreate
 }
