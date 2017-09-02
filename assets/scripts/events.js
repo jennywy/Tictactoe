@@ -50,7 +50,6 @@ const reset = function (event) {
   gameStatus = 'active'
   $('.box').text(null)
 }
-// export me to an auth events!
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -81,6 +80,8 @@ const onCreate = function (event) {
     .then(console.log('created a game'))
     .catch(console.log('something went wrong'))
 }
+
+
 
 module.exports = {
   game,
