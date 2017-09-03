@@ -1,9 +1,11 @@
-{"game": {
+{"game":{
   "id":5192,
   "cells":["","","","","","","","",""],
   "over":false,
   "player_x": {"id":524,"email":"qqq"},
-  "player_o":null}}
+  "player_o":null}
+
+BAhJIiU5YWNmNTY5ZTczMjliYzZlMDUzYzE0N2MyNTZlZWMxNQY6BkVG--5959edd87fb54a1f2812a3504f846d2c4486b7aa
 
 
 gameMoves[$(this).data('id')] = $(this).text()
