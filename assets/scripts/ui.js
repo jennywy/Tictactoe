@@ -62,6 +62,14 @@ const joinFail = function (data) {
   $('#message').text('Joined Failed')
 }
 
+const updateMoveSuccess = function (data) {
+  console.log(data)
+  store.game = data.game
+}
+
+const updateMoveFail = function (error) {
+  console.error(error)
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -72,5 +80,7 @@ module.exports = {
   createSuccess,
   createFail,
   joinSuccess,
-  joinFail
+  joinFail,
+  updateMoveSuccess,
+  updateMoveFail
 }
