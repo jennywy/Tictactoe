@@ -29,30 +29,34 @@ const signOut = function () {
   })
 }
 
-const create = function () {
+const create = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
   })
 }
 
-// const update = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'PATCH',
-//     data = getFormFields(this),
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const update = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + data.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  create
-  // update
+  create,
+  update
 }

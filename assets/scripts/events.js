@@ -77,11 +77,22 @@ const onSignOut = function (event) {
 const onCreate = function (event) {
   event.preventDefault()
   api.create()
-    .then(console.log('created a game'))
-    .catch(console.log('something went wrong'))
+    .then(ui.createSuccess)
+    .catch(ui.createFail)
 }
 
+const onJoin = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.update(data)
+    .then(ui.joinSuccess)
+    .catch(ui.joinFail)
+}
 
+// const onCreateAndJoin = function (event) {
+//   onCreate()
+//   // onJoin()
+// }
 
 module.exports = {
   game,
@@ -92,5 +103,7 @@ module.exports = {
   onSignIn,
   onSignOut,
   reset,
-  onCreate
+  onCreate,
+  onJoin
+  // onCreateAndJoin
 }

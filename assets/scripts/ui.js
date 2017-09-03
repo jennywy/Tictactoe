@@ -35,11 +35,42 @@ const signOutFailure = function () {
   $('#message').text('Sign Out Failure')
 }
 
+const createSuccess = function (data) {
+  console.log(data)
+  $('#message').text('Created Successfully')
+  store.game = data.game
+  $('#gameidtag').text(store.game.id)
+  // console.log(store.game)
+  // console.log(store.game.id)
+  // console.log(store.game.player_x.id)
+}
+
+const createFail = function (error) {
+  console.error(error)
+  $('#message').text('Nope')
+}
+
+const joinSuccess = function (data) {
+  store.game = data.game
+  console.log(data)
+  $('#message').text('Joined Successfully')
+}
+
+const joinFail = function (data) {
+  store.game = data.game
+  $('#message').text('Joined Successfully')
+  $('#gameidtag').text(store.game.id)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createSuccess,
+  createFail,
+  joinSuccess,
+  joinFail
 }
