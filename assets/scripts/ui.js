@@ -54,12 +54,12 @@ const joinSuccess = function (data) {
   store.game = data.game
   console.log(data)
   $('#message').text('Joined Successfully')
+  $('#gameidtag').text(store.game.id)
 }
 
 const joinFail = function (data) {
   store.game = data.game
-  $('#message').text('Joined Successfully')
-  $('#gameidtag').text(store.game.id)
+  $('#message').text('Joined Failed')
 }
 
 module.exports = {

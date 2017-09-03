@@ -52,7 +52,6 @@ const update = function (data) {
   })
 }
 
-
 module.exports = {
   signUp,
   signIn,
