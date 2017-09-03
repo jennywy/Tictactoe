@@ -54,14 +54,22 @@ const joinSuccess = function (data) {
   store.game = data.game
   console.log(data)
   $('#message').text('Joined Successfully')
+  $('#gameidtag').text(store.game.id)
 }
 
 const joinFail = function (data) {
   store.game = data.game
-  $('#message').text('Joined Successfully')
-  $('#gameidtag').text(store.game.id)
+  $('#message').text('Joined Failed')
 }
 
+const updateMoveSuccess = function (data) {
+  console.log(data)
+  store.game = data.game
+}
+
+const updateMoveFail = function (error) {
+  console.error(error)
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -72,5 +80,7 @@ module.exports = {
   createSuccess,
   createFail,
   joinSuccess,
-  joinFail
+  joinFail,
+  updateMoveSuccess,
+  updateMoveFail
 }

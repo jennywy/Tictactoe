@@ -33,15 +33,34 @@ const game = function (event) {
     if (turn % 2 === 1) {
       $(event.target).text('O')
       turn += 1
+      updateMove($(this).data('id'), 'O')
     } else {
       $(event.target).text('X')
       turn += 1
+      updateMove($(this).data('id'), 'X')
     }
   } else {
     console.log('pick another cell')
   }
   gameMoves[$(this).data('id')] = $(this).text()
   checkWinner()
+}
+
+const updateMove = function (index, value) {
+  console.log(index)
+  console.log(value)
+  let cell = {}
+  cell.index = index
+  cell.value = value
+  console.log(cell)
+  let gameObj = {}
+  gameObj.cell = cell
+  let updateObj = {}
+  updateObj.game = gameObj
+  console.log(updateObj)
+  api.update(updateObj)
+    .then(ui.updateMoveSuccess)
+    .catch(ui.updateMoveFail)
 }
 
 const reset = function (event) {
@@ -104,6 +123,7 @@ module.exports = {
   onSignOut,
   reset,
   onCreate,
-  onJoin
+  onJoin,
+  updateMove
   // onCreateAndJoin
 }
