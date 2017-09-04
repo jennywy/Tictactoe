@@ -14,7 +14,6 @@
 
 <body class="container-fluid">
   <h1>Tic Tac Toe</h1>
-
   <div class="authbar">
     <p id="message"></p>
     <p id="gameidtag"></p>
@@ -37,63 +36,54 @@
     </form>
     <form id="sign-out">
       <fieldset>
-        <legend>sign out </legend>
+        <legend>Sign Out</legend>
         <input type="submit" name="submit" value="Sign out">
       </fieldset>
     </form>
   </div>
   <form id="start-game">
     <fieldset>
-      <legend>start a game</legend>
+      <legend>Start</legend>
       <input type="submit" name="submit" value="Start">
     </fieldset>
   </form>
   <form id="join-game">
     <fieldset>
-        <legend>join a game</legend>
-        <input name="id" type="text" placeholder="ID of game">
+        <legend>Join a Game</legend>
+        <input name="id" type="text" placeholder="Game ID">
         <input type="submit" name="submit" value="Join">
       </fieldset>
     </form>
   <!-- Forms End Here -->
   <!-- Board Begins Here -->
+    <button type="button" class="btn btn-default">Reset Game</button>
   <div class="board">
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="0">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="1">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="2">
-
       </div>
     </div>
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="3">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="4">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="5">
-
       </div>
     </div>
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="6">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="7">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="8">
-
       </div>
     </div>
   </div>
   <div class="scoreboard"></div>
-  <button type="button" class="btn btn-default">Reset Game </button>
 </body>
 
 </html>
