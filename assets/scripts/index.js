@@ -17,6 +17,8 @@ $(() => {
   $('button').on('click', events.reset)
   $('#start-game').on('click', events.onCreate)
   $('#join-game').on('submit', events.onJoin)
+  $('#get-games').on('submit', events.onGetGames)
+  $('#get-game').on('submit', events.onGetGame)
 })
 
 // use require with a reference to bundle the file and use it in this file

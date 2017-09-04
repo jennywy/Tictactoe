@@ -66,7 +66,6 @@ const updateMove = function (index, value) {
 }
 
 const reset = function (event) {
-  event.preventDefault()
   gameMoves = [null, null, null, null, null, null, null, null, null]
   gameStatus = false
   $('.box').text(null)
@@ -112,6 +111,23 @@ const onJoin = function (event) {
     .catch(ui.joinFail)
 }
 
+const onGetGames = function (event) {
+  event.preventDefault()
+  api.index()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFail)
+}
+
+const onGetGame = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const id = data.id
+  console.log(id)
+  api.show(id)
+    .then(ui.showSuccess)
+    .catch(ui.showFail)
+}
+
 module.exports = {
   game,
   turn,
@@ -123,5 +139,7 @@ module.exports = {
   reset,
   onCreate,
   onJoin,
-  updateMove
+  updateMove,
+  onGetGame,
+  onGetGames
 }

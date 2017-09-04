@@ -52,12 +52,35 @@ const joinFail = function () {
 }
 
 const updateMoveSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   store.game = data.game
 }
 
 const updateMoveFail = function (error) {
   console.error(error)
+}
+
+const getGamesSuccess = function (data) {
+  store.games = data.games
+  console.log(store.games)
+  $('#scoreboard').text(JSON.stringify(store.games))
+}
+
+const getGamesFail = function (error) {
+  console.error(error)
+  $('#scoreboard').text('Error Retrieving Games')
+}
+
+const showSuccess = function (data) {
+  store.game = data.game
+  console.log(store.game)
+  // console.log(store.games)
+  $('#scoreboard').text(JSON.stringify(store.game))
+}
+
+const showFail = function (error) {
+  console.error(error)
+  $('#scoreboard').text('Error Retrieving Game')
 }
 
 const declareWinner = function () {
@@ -89,5 +112,9 @@ module.exports = {
   updateMoveSuccess,
   updateMoveFail,
   declareWinner,
-  declareDraw
+  declareDraw,
+  getGamesSuccess,
+  getGamesFail,
+  showSuccess,
+  showFail
 }
