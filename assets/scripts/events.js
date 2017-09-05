@@ -20,10 +20,10 @@ const checkWinner = function () {
   (gameMoves[2] === gameMoves[5] && gameMoves[5] === gameMoves[8] && gameMoves[8] !== null) ||
   (gameMoves[2] === gameMoves[4] && gameMoves[4] === gameMoves[6] && gameMoves[6] !== null)) {
     gameStatus = true
-    ui.declareWinner()
+    declareWinner()
   } else if (turn === 9) {
     gameStatus = true
-    ui.declareDraw()
+    declareDraw()
   }
 }
 
@@ -48,6 +48,21 @@ const game = function (event) {
   } else {
     $('#message').text('Pick another cell')
   }
+}
+
+const declareWinner = function () {
+  let winner
+  if (turn % 2 === 1) {
+    winner = 'Player X'
+    $('#message').text(winner + ' is the winner!')
+  } else {
+    winner = 'Player O'
+    $('#message').text(winner + ' is the winner!')
+  }
+}
+
+const declareDraw = function () {
+  $('#message').text('Draw')
 }
 
 const updateMove = function (index, value) {
@@ -134,7 +149,6 @@ const onGetGame = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   const id = data.id
-  console.log(id)
   api.show(id)
     .then(ui.showSuccess)
     .catch(ui.showFail)
@@ -142,8 +156,9 @@ const onGetGame = function (event) {
 
 module.exports = {
   game,
-  turn,
   gameMoves,
+  declareDraw,
+  declareWinner,
   checkWinner,
   onSignUp,
   onSignIn,

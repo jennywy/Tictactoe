@@ -1,6 +1,5 @@
 'use strict'
 const store = require('./store')
-const events = require('./events')
 
 const signUpSuccess = function (data) {
   $('#message').text('Successfully signed up')
@@ -18,10 +17,8 @@ const signInSuccess = function (data) {
   $('#sign-in').hide()
   $('#sign-out').show()
   $('#change-password').show()
-  $('.board').show()
   $('#start-game').show()
   $('#join-game').show()
-  $('#reset').show()
   $('#get-game').show()
   $('#get-games').show()
 }
@@ -55,6 +52,8 @@ const createSuccess = function (data) {
   store.game = data.game
   $('#gameidtag').text('This is game #' + store.game.id)
   $('#start-game').hide()
+  $('.board').show()
+  $('#reset').show()
 }
 
 const createFail = function () {
@@ -105,21 +104,6 @@ const showFail = function () {
   $('#scoreboard').text('Error Retrieving Game')
 }
 
-const declareWinner = function () {
-  let winner
-  if (events.turn % 2 === 1) {
-    winner = 'Player X'
-    $('#message').text(winner + ' is the winner!')
-  } else {
-    winner = 'Player O'
-    $('#message').text(winner + ' is the winner!')
-  }
-}
-
-const declareDraw = function () {
-  $('#message').text('Draw')
-}
-
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -133,8 +117,6 @@ module.exports = {
   joinFail,
   updateMoveSuccess,
   updateMoveFail,
-  declareWinner,
-  declareDraw,
   getGamesSuccess,
   getGamesFail,
   showSuccess,
