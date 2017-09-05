@@ -57,8 +57,7 @@ const createSuccess = function (data) {
   $('#start-game').hide()
 }
 
-const createFail = function (error) {
-  console.error(error)
+const createFail = function () {
   $('#message').text('Not created')
 }
 
