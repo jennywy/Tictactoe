@@ -23,6 +23,7 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function () {
   $('#message').text('Signed Out Successfully')
+  $('#scoreboard').text(null)
   store.user = null
 }
 
