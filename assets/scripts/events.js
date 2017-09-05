@@ -66,11 +66,15 @@ const updateMove = function (index, value) {
 }
 
 const reset = function (event) {
+  event.preventDefault()
   gameMoves = [null, null, null, null, null, null, null, null, null]
   gameStatus = false
   $('.box').text(null)
   $('#message').text(null)
   turn = 0
+  api.create()
+    .then(ui.createSuccess)
+    .catch(ui.createFail)
 }
 
 const onSignUp = function (event) {
@@ -94,6 +98,14 @@ const onSignOut = function (event) {
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
 }
 
 const onCreate = function (event) {
@@ -141,5 +153,6 @@ module.exports = {
   onJoin,
   updateMove,
   onGetGame,
-  onGetGames
+  onGetGames,
+  onChangePassword
 }

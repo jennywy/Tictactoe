@@ -29,6 +29,17 @@ const signOut = function () {
   })
 }
 
+const changePassword = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/change-password/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const create = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games',
@@ -78,5 +89,6 @@ module.exports = {
   create,
   update,
   index,
-  show
+  show,
+  changePassword
 }

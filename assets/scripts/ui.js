@@ -41,8 +41,18 @@ const createFail = function (error) {
   $('#message').text('Nope')
 }
 
+const changePasswordSuccess = function () {
+  console.log('password changed')
+  $('#message').text('Changed password successfully')
+}
+
+const changePasswordFailure = function (error) {
+  console.error(error)
+  $('#message').text('Error on change password')
+}
+
 const joinSuccess = function (data) {
-  store.game = data.game
+  store.game.id = data.game.id
   $('#message').text('Joined Successfully')
   $('#gameidtag').text('You joined game #' + store.game.id)
 }
@@ -116,5 +126,7 @@ module.exports = {
   getGamesSuccess,
   getGamesFail,
   showSuccess,
-  showFail
+  showFail,
+  changePasswordSuccess,
+  changePasswordFailure
 }

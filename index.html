@@ -40,7 +40,14 @@
         <input type="submit" name="submit" value="Sign out">
       </fieldset>
     </form>
-  </div>
+<form id="change-password">
+  <fieldset>
+    <legend>Change Password</legend>
+    <input type="text" name="passwords[old]" id="change-password-old" placeholder="Old Password">
+    <input type="password" name="passwords[new]" id="change-password-new" placeholder="New Password">
+    <input type="submit" name="submit" value="Change Password!">
+  </fieldset>
+</form>
   <form id="start-game">
     <fieldset>
       <legend>Start</legend>
@@ -56,7 +63,13 @@
     </form>
   <!-- Forms End Here -->
   <!-- Board Begins Here -->
-    <button type="button" class="btn btn-default">Reset Game</button>
+  <form id="reset">
+    <fieldset>
+      <legend>Reset Game</legend>
+    <input type="submit" name="submit" value="Reset">
+  </fieldset>
+  </form>
+    </div>
   <div class="board">
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="0">
