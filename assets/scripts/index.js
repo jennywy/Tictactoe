@@ -11,13 +11,15 @@ $(() => {
 
 $(() => {
   $('.box').on('click', events.game)
-
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
   $('#sign-out').on('submit', events.onSignOut)
-  $('button').on('click', events.reset)
-  $('#start-game').on('click', events.onCreate)
+  $('#reset').on('submit', events.onCreate)
+  $('#start-game').on('click', events.reset)
   $('#join-game').on('submit', events.onJoin)
+  $('#get-games').on('submit', events.onGetGames)
+  $('#get-game').on('submit', events.onGetGame)
+  $('#change-password').on('submit', events.onChangePassword)
 })
 
 // use require with a reference to bundle the file and use it in this file

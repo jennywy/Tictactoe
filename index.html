@@ -14,7 +14,6 @@
 
 <body class="container-fluid">
   <h1>Tic Tac Toe</h1>
-
   <div class="authbar">
     <p id="message"></p>
     <p id="gameidtag"></p>
@@ -37,63 +36,82 @@
     </form>
     <form id="sign-out">
       <fieldset>
-        <legend>sign out </legend>
+        <legend>Sign Out</legend>
         <input type="submit" name="submit" value="Sign out">
       </fieldset>
     </form>
-  </div>
+<form id="change-password">
+  <fieldset>
+    <legend>Change Password</legend>
+    <input type="text" name="passwords[old]" id="change-password-old" placeholder="Old Password">
+    <input type="password" name="passwords[new]" id="change-password-new" placeholder="New Password">
+    <input type="submit" name="submit" value="Change Password!">
+  </fieldset>
+</form>
   <form id="start-game">
     <fieldset>
-      <legend>start a game</legend>
+      <legend>Start</legend>
       <input type="submit" name="submit" value="Start">
     </fieldset>
   </form>
   <form id="join-game">
     <fieldset>
-        <legend>join a game</legend>
-        <input name="id" type="text" placeholder="ID of game">
+        <legend>Join a Game</legend>
+        <input name="id" type="text" placeholder="Game ID">
         <input type="submit" name="submit" value="Join">
       </fieldset>
     </form>
   <!-- Forms End Here -->
   <!-- Board Begins Here -->
+  <form id="reset">
+    <fieldset>
+      <legend>Reset Game</legend>
+    <input type="submit" name="submit" value="Reset">
+  </fieldset>
+  </form>
+    </div>
   <div class="board">
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="0">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="1">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="2">
-
       </div>
     </div>
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="3">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="4">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="5">
-
       </div>
     </div>
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="6">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="7">
-
       </div>
       <div class="col-xs-3 col-md-4 box" data-id="8">
-
       </div>
     </div>
   </div>
-  <div class="scoreboard"></div>
-  <button type="button" class="btn btn-default">Reset Game </button>
+  <div>
+    <form id="get-games">
+      <fieldset>
+        <legend>Get All Game History</legend>
+        <input type="submit" name="submit" value="Retrieve">
+      </fieldset>
+    </form>
+    <form id="get-game">
+      <fieldset>
+        <legend>Get A Game</legend>
+        <input name="id" type="text" placeholder="Game ID">
+        <input type="submit" name="submit" value="Retrieve">
+    </fieldset>
+    </form>
+  <p id="scoreboard"></p>
+  </div>
 </body>
 
 </html>

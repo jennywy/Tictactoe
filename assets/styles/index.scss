@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  background-color: rgb(205, 163, 81);
+
+}
+
 .container-fluid {
   height: 600px;
   width: 600px;
@@ -8,8 +13,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .row div {
-  border: 1px solid #990099;
+  border: 1px solid rgb(97, 108, 74);
   height: 200px;
   margin: 0 auto;
   width: 200px;
+}
+
+p {
+  font-size: 40px;
+}
+
+.box {
+  font-size: 40px;
+  text-align: center;
+  padding: 0 auto;
+  background-color: rgb(236, 233, 221);
 }

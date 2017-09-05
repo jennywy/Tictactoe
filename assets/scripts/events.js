@@ -8,7 +8,7 @@ const ui = require('./ui')
 
 // push the click events into the gamearray
 let gameMoves = [null, null, null, null, null, null, null, null, null]
-let gameStatus = 'active'
+let gameStatus = false
 
 const checkWinner = function () {
   if ((gameMoves[0] === gameMoves[1] && gameMoves[1] === gameMoves[2] && gameMoves[2] !== null) ||
@@ -19,45 +19,47 @@ const checkWinner = function () {
   (gameMoves[1] === gameMoves[4] && gameMoves[4] === gameMoves[7] && gameMoves[7] !== null) ||
   (gameMoves[2] === gameMoves[5] && gameMoves[5] === gameMoves[8] && gameMoves[8] !== null) ||
   (gameMoves[2] === gameMoves[4] && gameMoves[4] === gameMoves[6] && gameMoves[6] !== null)) {
-    console.log('Winner!')
-    gameStatus = 'inactive'
+    gameStatus = true
+    ui.declareWinner()
   } else if (turn === 9) {
-    console.log('draw')
-    gameStatus = 'inactive'
+    gameStatus = true
+    ui.declareDraw()
   }
 }
 
 let turn = 0
 const game = function (event) {
-  if (gameMoves[$(this).data('id')] === null && gameStatus === 'active') {
+  if (gameMoves[$(this).data('id')] === null && gameStatus === false) {
+    let player
     if (turn % 2 === 1) {
-      $(event.target).text('O')
+      player = 'O'
+      $(event.target).text(player)
       turn += 1
-      updateMove($(this).data('id'), 'O')
+      $('#message').text('Player X turn')
     } else {
-      $(event.target).text('X')
+      player = 'X'
+      $(event.target).text(player)
       turn += 1
-      updateMove($(this).data('id'), 'X')
+      $('#message').text('Player O turn')
     }
+    gameMoves[$(this).data('id')] = $(this).text()
+    checkWinner()
+    updateMove($(this).data('id'), player)
   } else {
-    console.log('pick another cell')
+    $('#message').text('Pick another cell')
   }
-  gameMoves[$(this).data('id')] = $(this).text()
-  checkWinner()
 }
 
 const updateMove = function (index, value) {
-  console.log(index)
-  console.log(value)
-  let cell = {}
+  const over = gameStatus
+  const cell = {}
   cell.index = index
   cell.value = value
-  console.log(cell)
-  let gameObj = {}
+  const gameObj = {}
   gameObj.cell = cell
-  let updateObj = {}
+  gameObj.over = over
+  const updateObj = {}
   updateObj.game = gameObj
-  console.log(updateObj)
   api.update(updateObj)
     .then(ui.updateMoveSuccess)
     .catch(ui.updateMoveFail)
@@ -66,8 +68,13 @@ const updateMove = function (index, value) {
 const reset = function (event) {
   event.preventDefault()
   gameMoves = [null, null, null, null, null, null, null, null, null]
-  gameStatus = 'active'
+  gameStatus = false
   $('.box').text(null)
+  $('#message').text(null)
+  turn = 0
+  api.create()
+    .then(ui.createSuccess)
+    .catch(ui.createFail)
 }
 
 const onSignUp = function (event) {
@@ -93,6 +100,14 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+
 const onCreate = function (event) {
   event.preventDefault()
   api.create()
@@ -108,10 +123,22 @@ const onJoin = function (event) {
     .catch(ui.joinFail)
 }
 
-// const onCreateAndJoin = function (event) {
-//   onCreate()
-//   // onJoin()
-// }
+const onGetGames = function (event) {
+  event.preventDefault()
+  api.index()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFail)
+}
+
+const onGetGame = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const id = data.id
+  console.log(id)
+  api.show(id)
+    .then(ui.showSuccess)
+    .catch(ui.showFail)
+}
 
 module.exports = {
   game,
@@ -124,6 +151,8 @@ module.exports = {
   reset,
   onCreate,
   onJoin,
-  updateMove
-  // onCreateAndJoin
+  updateMove,
+  onGetGame,
+  onGetGames,
+  onChangePassword
 }
