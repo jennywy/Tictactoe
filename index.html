@@ -40,36 +40,36 @@
         <input type="submit" name="submit" value="Sign out">
       </fieldset>
     </form>
-<form id="change-password">
-  <fieldset>
-    <legend>Change Password</legend>
-    <input type="text" name="passwords[old]" id="change-password-old" placeholder="Old Password">
-    <input type="password" name="passwords[new]" id="change-password-new" placeholder="New Password">
-    <input type="submit" name="submit" value="Change Password!">
-  </fieldset>
-</form>
-  <form id="start-game">
-    <fieldset>
-      <legend>Start</legend>
-      <input type="submit" name="submit" value="Start">
-    </fieldset>
-  </form>
-  <form id="join-game">
+    <form id="change-password">
+      <fieldset>
+        <legend>Change Password</legend>
+        <input type="text" name="passwords[old]" id="change-password-old" placeholder="Old Password">
+        <input type="password" name="passwords[new]" id="change-password-new" placeholder="New Password">
+        <input type="submit" name="submit" value="Change Password!">
+      </fieldset>
+    </form>
+    <form id="start-game">
+      <fieldset>
+        <legend>Start</legend>
+        <input type="submit" name="submit" value="Start">
+      </fieldset>
+    </form>
+    <!-- <form id="join-game">
     <fieldset>
         <legend>Join a Game</legend>
         <input name="id" type="text" placeholder="Game ID">
         <input type="submit" name="submit" value="Join">
       </fieldset>
+    </form> -->
+    <!-- Forms End Here -->
+    <!-- Board Begins Here -->
+    <form id="reset">
+      <fieldset>
+        <legend>Reset Game</legend>
+        <input type="submit" name="submit" value="Reset">
+      </fieldset>
     </form>
-  <!-- Forms End Here -->
-  <!-- Board Begins Here -->
-  <form id="reset">
-    <fieldset>
-      <legend>Reset Game</legend>
-    <input type="submit" name="submit" value="Reset">
-  </fieldset>
-  </form>
-    </div>
+  </div>
   <div class="board">
     <div class="row">
       <div class="col-xs-3 col-md-4 box" data-id="0">
@@ -97,6 +97,7 @@
     </div>
   </div>
   <div>
+    <p id="scoreboard"></p>
     <form id="get-games">
       <fieldset>
         <legend>Get All Game History</legend>
@@ -108,9 +109,8 @@
         <legend>Get A Game</legend>
         <input name="id" type="text" placeholder="Game ID">
         <input type="submit" name="submit" value="Retrieve">
-    </fieldset>
+      </fieldset>
     </form>
-  <p id="scoreboard"></p>
   </div>
 </body>
 
