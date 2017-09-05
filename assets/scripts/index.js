@@ -10,6 +10,14 @@ $(() => {
 })
 
 $(() => {
+  $('.board').hide()
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#start-game').hide()
+  $('#reset').hide()
+  $('#join-game').hide()
+  $('#get-games').hide()
+  $('#get-game').hide()
   $('.box').on('click', events.game)
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)

@@ -4,6 +4,7 @@ const events = require('./events')
 
 const signUpSuccess = function (data) {
   $('#message').text('Successfully signed up')
+  $('#sign-up').hide()
 }
 
 const signUpFailure = function (error) {
@@ -14,6 +15,15 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Successfully signed in')
   store.user = data.user
+  $('#sign-up').hide()
+  $('#sign-out').show()
+  $('#change-password').show()
+  $('.board').show()
+  $('#start-game').show()
+  $('#join-game').show()
+  $('#reset').show()
+  $('#get-game').show()
+  $('#get-games').show()
 }
 
 const signInFailure = function (error) {
@@ -24,6 +34,16 @@ const signInFailure = function (error) {
 const signOutSuccess = function () {
   $('#message').text('Signed Out Successfully')
   store.user = null
+  $('#sign-in').show()
+  $('#sign-up').show()
+  $('.board').hide()
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#start-game').hide()
+  $('#reset').hide()
+  $('#join-game').hide()
+  $('#get-games').hide()
+  $('#get-game').hide()
 }
 
 const signOutFailure = function () {
@@ -34,15 +54,15 @@ const createSuccess = function (data) {
   $('#message').text('Created Successfully')
   store.game = data.game
   $('#gameidtag').text('This is game #' + store.game.id)
+  $('#start-game').hide()
 }
 
 const createFail = function (error) {
   console.error(error)
-  $('#message').text('Nope')
+  $('#message').text('Not created')
 }
 
 const changePasswordSuccess = function () {
-  console.log('password changed')
   $('#message').text('Changed password successfully')
 }
 
@@ -62,7 +82,6 @@ const joinFail = function () {
 }
 
 const updateMoveSuccess = function (data) {
-  // console.log(data)
   store.game = data.game
 }
 
@@ -72,8 +91,7 @@ const updateMoveFail = function (error) {
 
 const getGamesSuccess = function (data) {
   store.games = data.games
-  console.log(store.games)
-  $('#scoreboard').text(JSON.stringify(store.games))
+  $('#scoreboard').text('You have played ' + store.games.length + ' games')
 }
 
 const getGamesFail = function (error) {
@@ -83,8 +101,6 @@ const getGamesFail = function (error) {
 
 const showSuccess = function (data) {
   store.game = data.game
-  console.log(store.game)
-  // console.log(store.games)
   $('#scoreboard').text(JSON.stringify(store.game))
 }
 

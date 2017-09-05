@@ -35,12 +35,12 @@ const game = function (event) {
       player = 'O'
       $(event.target).text(player)
       turn += 1
-      $('#message').text('Player X turn')
+      $('#message').text('Player X\'s turn')
     } else {
       player = 'X'
       $(event.target).text(player)
       turn += 1
-      $('#message').text('Player O turn')
+      $('#message').text('Player O\'s turn')
     }
     gameMoves[$(this).data('id')] = $(this).text()
     checkWinner()
