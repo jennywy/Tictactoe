@@ -15,8 +15,6 @@
 <body class="container-fluid">
   <h1>Tic Tac Toe</h1>
   <div class="authbar">
-    <p id="message"></p>
-    <p id="gameidtag"></p>
     <form id='sign-up'>
       <fieldset>
         <legend>Sign Up!</legend>
@@ -43,7 +41,7 @@
     <form id="change-password">
       <fieldset>
         <legend>Change Password</legend>
-        <input type="text" name="passwords[old]" id="change-password-old" placeholder="Old Password">
+        <input type="password" name="passwords[old]" id="change-password-old" placeholder="Old Password">
         <input type="password" name="passwords[new]" id="change-password-new" placeholder="New Password">
         <input type="submit" name="submit" value="Change Password!">
       </fieldset>
@@ -63,6 +61,8 @@
     </form> -->
     <!-- Forms End Here -->
     <!-- Board Begins Here -->
+    <p id="message"></p>
+    <p id="gameidtag"></p>
     <form id="reset">
       <fieldset>
         <legend>Reset Game</legend>

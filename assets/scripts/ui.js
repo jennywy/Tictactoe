@@ -88,7 +88,7 @@ const updateMoveFail = function () {
 
 const getGamesSuccess = function (data) {
   store.games = data.games
-  $('#scoreboard').text('You have played ' + store.games.length + ' games')
+  $('#scoreboard').text('You have finished ' + store.games.length + ' game(s)')
 }
 
 const getGamesFail = function () {
@@ -97,7 +97,7 @@ const getGamesFail = function () {
 
 const showSuccess = function (data) {
   store.game = data.game
-  $('#scoreboard').text(JSON.stringify(store.game))
+  $('#scoreboard').text(JSON.stringify(Object.values(store.game)))
 }
 
 const showFail = function () {
