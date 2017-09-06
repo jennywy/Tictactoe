@@ -18,8 +18,8 @@ index.scss contains styling for index.html
 index.js contains all of the event listeners and handlers for events.js
 events.js contains game logic actions, authorization events and game events. It points to api.js, which makes the ajax calls for the authorization and game actions. It also points to a ui page that contains the promises and catches upon the success or failure of those calls.
 
-Day 0 and 1: Panic and cry a lot and go down a rabbit hole trying to figure out how to check for a winner and then have other people take pity on you to help you start on the game logic.
 
+Day 1 (http://i0.kym-cdn.com/entries/icons/facebook/000/012/073/7686178464_fdc8ea66c7.jpg)
 I spent the first day trying to find out how to check for a match. I had set up an array of arrays containing the coordinates of all possible matches, and had wanted to compare an array player's moves against all the elements in the winning matches array. That proved to be really challenging. I could not figure out how to check a for a winner after each move, and it was made especially harder since I didn't have any of the other game logic to support expanding this function.
 
 I was overwhelmed with the game logic, and didn't have a clear understanding of how to use jQuery to edit the text in the div or how to use it to take user actions and store it in an array I could access while writing the rest of my game logic.
@@ -28,17 +28,17 @@ At this point I asked the consultants and my much smarter classmates for help an
 
 They also helped me with a check function. My plan to use array methods was obviously not going to work and was something I had poorly understood myself.
 
-I realized that it was matching all null values to each other, so I added another condition to my check function to take non-null values
+I realized that it was matching all null values to each other, so I added another condition to my check function to take non-null values through the transitive properities of math.
 
-The other working days were a blur of caffeine and not sleeping
+The other working days were a blur of caffeine and not sleeping.
 
 I created the sign in, out, password change, create a new game, using a previous in class exercise on AJAX and token authorization. This was all fairly straightforward until I got to the patch request.
 
-Trying to work on my update/patch request after every move function was especially challenging and I had a lot of outside help creating this function. Previous requests only demanded that I store the requests to access it, but I was now trying to feed the request some data about my board. I realized very late that I wasn't storing the object returned.
+Trying to work on my update/patch request after every move function was especially challenging and I had a lot of outside help creating this function. Previous requests only demanded that I store the requests to access it, but I was now trying to feed the request some data about my board. I realized very late that I wasn't storing the object returned!
 
 I realized I had to pass an object that contains the data of the board's status. I realized I had to structure the object as according the API documentation, and feed the the information from my board as the moves were occuring.
 
-I realized (after long consultation with a professional software tester) I could use my game logic to satisfy the value and the index perimeters if I rewrote some of my original game logic. Previously I had hardcoded whose turn it was without declaring a player. The text would just turn over X or O depending on the turn count... But if I created a proper player variable in my if statement for the game function I could use it as a perimeter for my updateMove.
+I realized (after long consultation with a professional software tester who happens to be my brother) I could use my game logic to satisfy the value and the index perimeters if I rewrote some of my original game logic. Previously I had hardcoded whose turn it was without declaring a player. The text would just turn over X or O depending on the turn count... But if I created a proper player variable in my if statement for the game function I could use it as a perimeter for my updateMove.
 
 Then I had another problem where my game was not ending in the right place because of a change I made to that game logic. After I got a match in the DOM, I could play the game for one more move before the game completed. My checkWinner function was now out of sync with the game actions. I didn't know how or why, so through experimentation I placed my checkWinner function in different parts of the game function. With a lot of experimenting with the order of my functions, I finally had it in the right place in the right order.
 
@@ -48,7 +48,8 @@ I also realized that my reset button cleared the DOM but it did not create a new
 <ul>
 <li> If a player clicks the board after the game is over, the message box will report 'Pick another cell'</li>
 <li>Separation of concerns. The events page includes game logic and authorization events. I had attempted to and failed once, and kept it on the same page.</li>
-<li>Multiplayer works only in the same window, and requires</li>
+<li>Multiplayer works only in the same window and requires player X to sign in and create a game, and then player O to sign in and join the game using the same game id.</li>
+<li>The get game prints out an ugly JSON object. I'd like to change that to report if the game was a win, or a loss</li>
 </ul>
 
 <h1>Wireframes</h1>
