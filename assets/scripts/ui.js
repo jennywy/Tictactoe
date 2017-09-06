@@ -31,6 +31,7 @@ const signOutSuccess = function () {
   $('#message').text('Signed Out Successfully')
   store.user = null
   $('#sign-in').show()
+  $('#sign-in').trigger('reset')
   $('#sign-up').show()
   $('.board').hide()
   $('#sign-out').hide()
@@ -62,6 +63,7 @@ const createFail = function () {
 
 const changePasswordSuccess = function () {
   $('#message').text('Changed password successfully')
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function () {
@@ -98,6 +100,7 @@ const getGamesFail = function () {
 const showSuccess = function (data) {
   store.game = data.game
   $('#scoreboard').text(JSON.stringify(Object.values(store.game)))
+  $('#get-game').trigger('reset')
 }
 
 const showFail = function () {

@@ -64,7 +64,7 @@ const update = function (data) {
 
 const index = function () {
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: config.apiOrigin + '/games?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
