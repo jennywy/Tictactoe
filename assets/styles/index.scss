@@ -2,7 +2,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background-color: rgb(205, 163, 81);
+  background-color: #2444B2;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
 }
 
@@ -13,7 +14,7 @@ body {
 }
 
 .row div {
-  border: 1px solid rgb(97, 108, 74);
+  border: 1px solid #FFDB79;
   height: 100px;
   margin: 0 auto;
   width: 100px;
@@ -27,5 +28,5 @@ p {
   font-size: 20px;
   text-align: center;
   padding: 0 auto;
-  background-color: rgb(236, 233, 221);
+  background-color: #7998FF;
 }

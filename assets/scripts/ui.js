@@ -42,6 +42,7 @@ const signOutSuccess = function () {
   $('#get-games').hide()
   $('#get-game').hide()
   $('#scoreboard').text(null)
+  $('#message').text(null)
 }
 
 const signOutFailure = function () {
@@ -74,6 +75,7 @@ const joinSuccess = function (data) {
   store.game.id = data.game.id
   $('#message').text('Joined Successfully')
   $('#gameidtag').text('You joined game #' + store.game.id)
+  $('#join-game').trigger('reset')
 }
 
 const joinFail = function () {
